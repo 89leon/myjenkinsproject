@@ -1,0 +1,17 @@
+Go to "Manage Jenkins" > "Script Console" and run a script:
+
+
+
+
+
+ Jenkins .instance.getItemByFullName("JobName").getBuildByNumber(JobNumber)
+.finish(hudson.model.Result.ABORTED, new java.io.IOException("Aborting build"));
+        
+
+
+In case you got a Multibranch Pipeline-job
+
+Jenkins.instance.getItemByFullName("dealing_test")
+.getBranch("dev")
+.getBuildByNumber(51)
+.finish(hudson.model.Result.ABORTED, new java.io.IOException("Aborting build"));
